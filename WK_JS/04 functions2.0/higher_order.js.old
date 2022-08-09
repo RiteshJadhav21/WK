@@ -1,0 +1,55 @@
+// functions accepting other functions as parameter
+const oneWord = function (str) {
+  return str.replace(/ /g, "").toLowerCase();
+};
+
+// console.log(oneWord("Javascript is a crazy language."));
+
+const firstWordToUpper = function (str) {
+  const [firstWord, ...otherWords] = str.split(" ");
+  //   console.log(firstWord);
+  //   console.log(otherWords);
+  return [firstWord.toUpperCase(), ...otherWords].join(" ");
+};
+
+// console.log(firstWordToUpper("javascript is a crazy language."));
+// console.log(firstWordToUpper("but so are java and python."));
+
+function strTransformer(str, fn) {
+  console.log(`Original String: ${str}`);
+  console.log(`Transformed String: ${fn(str)}`);
+}
+
+strTransformer("javascript is a crazy language.", oneWord);
+strTransformer("javascript is a crazy language.", firstWordToUpper);
+
+const greetMethod = () => console.log("Hello World");
+
+document.getElementById("btn").addEventListener("click", greetMethod);
+
+// functions returning other functions
+
+const getGreeterMethod = function (greeting) {
+  return function (personName) {
+    console.log(`${greeting} ${personName}`);
+  };
+};
+
+const greet = getGreeterMethod("Hello,");
+greet("Pradeep");
+greet("Karthik");
+
+getGreeterMethod("Howdy, ")("Sreekar");
+
+// function returning function using arrow
+const getGreeterMethod_New = (greeting) =>
+  function (personName) {
+    console.log(`${greeting} ${personName}`);
+  };
+
+getGreeterMethod_New("Hola, ")("Nagaraj!");
+
+const greeterExtreme = (greeting) => (personName) =>
+  console.log(`${greeting} ${personName}`);
+
+greeterExtreme("Now this is a bit...")("too much.");

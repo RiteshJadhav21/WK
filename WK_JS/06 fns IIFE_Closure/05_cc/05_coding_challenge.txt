@@ -1,0 +1,11 @@
+1. Create an html.
+2. Add h1 tag with text "Exploring Closures".
+3. Add a button.
+4. Attach closure.js to this HTML.
+5. In closure.js write a function to extract h1 element add add a class called "blue" to it.
+6. Create default.css to change color of any element with class blue to blue.
+7. Make this function as IIFE.
+8. Modify this function to add an event listener to the button to handle click event.
+9. In the event handler toggle the class of h1 element between blue and cyan for each click.
+10. i.e. If h1 has class blue, on click of button change it to cyan. If it is cyan change it to blue.
+11. Add an element to css to display cyan class in cyan color.

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=scr, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>hello</h1>
+    <script>
+    //   async   function test(){
+    //         return "Hwllo";
+    //     }
+
+    //     test().then((result)=>{console.log(result)});
+    //    // console.log(test());
+
+         async function test(){
+            //console.log("2");
+          // await console.log("3");
+            const response =await fetch("modules/sample2.json");
+            //console.log("3");
+            const student = await response.json();
+
+            return student;
+         }
+
+         //console.log("1");
+
+        // let a= test();
+
+         //console.log("4");
+         //console.log(a)
+            
+         test().then((res)=>{
+            console.log(res)
+         }).catch((er)=>{
+            console.log(er)
+         })
+
+
+    </script>
+</body>
+</html>
