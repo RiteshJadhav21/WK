@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="calc.js"></script>
+    <link rel="stylesheet" href="calc.css" />
+ 
+    <style>
+
+table {
+  width: 20%;
+  box-shadow: 5px 10px #888888;
+  border: 2px solid;
+}
+input[type="text"] {
+  width: 100%;
+}
+input[type="button"] {
+  width: 100%;
+}
+    </style>
+
+</head>
+  <body>
+    <table>
+      <tr>
+        <td colspan="3">
+          <input type="text" id="screen" readonly style="text-align: right" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="button" value="C" id="clear" onclick="clearResult()" />
+        </td>
+        <td>
+          <input type="button" value="1" id="one" onclick="display(this.id)" />
+        </td>
+        <td>
+          <input type="button" value="2" id="two" onclick="display(this.id)" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input
+            type="button"
+            value="3"
+            id="three"
+            onclick="display(this.id)"
+          />
+        </td>
+        <td>
+          <input type="button" value="4" id="four" onclick="display(this.id)" />
+        </td>
+        <td>
+          <input type="button" value="5" id="five" onclick="display(this.id)" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="button" value="6" id="six" onclick="display(this.id)" />
+        </td>
+        <td>
+          <input
+            type="button"
+            value="7"
+            id="seven"
+            onclick="display(this.id)"
+          />
+        </td>
+        <td>
+          <input
+            type="button"
+            value="8"
+            id="eight"
+            onclick="display(this.id)"
+          />
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <input type="button" value="9" id="nine" onclick="display(this.id)" />
+        </td>
+        <td>
+          <input type="button" value="+" id="add" onclick="display(this.id)" />
+        </td>
+        <td>
+          <input type="button" value="-" id="sub" onclick="display(this.id)" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="button" value="*" id="mult" onclick="display(this.id)" />
+        </td>
+        <td>
+          <input type="button" value="/" id="div" onclick="display(this.id)" />
+        </td>
+        <td>
+          <input type="button" value="=" id="eval" onclick="getResult()" />
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <input type="button" value="0" id="zero" onclick="display(this.id)" />
+        </td>
+      </tr>
+    </table>
+  </body>
+
+
+<script>
+
+let expression = "";
+function display(clicked_id) {
+  expression += document.getElementById(clicked_id).value;
+  document.getElementById("screen").value = expression;
+}
+
+function getResult() {
+  result = eval(expression);
+  document.getElementById("screen").value = result;
+}
+
+function clearResult() {
+  expression = "";
+  document.getElementById("screen").value = expression;
+}
+
+window.onerror = function () {
+  expression = "Invalid Expression";
+  document.getElementById("screen").value = expression;
+};
+
+// document.addEventListener("click", display);
+
+</script>
+
+</html>
